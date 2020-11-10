@@ -1,0 +1,63 @@
+.swiper{
+  width:100%;
+}
+
+.swiper image{
+  /* padding: 1px; */
+  width:100%;
+}
+
+.pd-image{
+  width: 100%;
+  height:200px;
+}
+
+.service-icon {
+  margin-right: 16px;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+
+
+.weui-cell {
+  padding: 10px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/* .pd-detail{
+  flex: 1;
+  height:92vh;
+  width: 100%;
+} */
+
+/* .pd-detail-tool{
+  background-color: rgba(17, 17, 17, 0.01);
+  position:fixed;
+  bottom:0;
+  height:8vh;
+  width:100%;
+}
+
+.pd-detail-tool-item{
+  padding-top: 1.2vh;
+  border-top: 1px solid rgba(17, 17, 17, 0.05);
+} */
+
+.pd-cell-label{
+  word-wrap:break-word;
+  word-break: break-all;
+}
+
+.pd-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}

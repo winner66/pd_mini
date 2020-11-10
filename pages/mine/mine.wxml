@@ -1,0 +1,51 @@
+<view class="page">
+  <scroll-view class="pd-content" scroll-y="true" enable-back-to-top="true">
+    <view class="container">
+      <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取我的昵称 </button>
+        <block wx:else>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">你好 : {{userInfo.nickName}}</text>
+        </block>
+      </view>
+    </view>
+    <view class="pd-split"></view>
+    <view class="weui-cells weui-cells_after-title">
+      <!-- <navigator url="/pages/pdetail/pdetail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">我的地址</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator> -->
+      <!-- <navigator url="/pages/pdetail/pdetail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">产品推荐</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator> -->
+      <!-- <navigator url="/pages/mine/about/about"  class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">关于宏科</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator> -->
+
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="openPdf" data-url="{{pdf.intro}}">
+        <view class="weui-cell__bd">公司介绍</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+
+      <navigator url="/pages/mine/contact/contact"  class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">联系我们</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+
+      <!-- <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="openPdf" data-url="{{pdf.contact}}">
+        <view class="weui-cell__bd">联系我们</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view> -->
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="clear">
+        <view class="weui-cell__bd">清除缓存</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="testTap">
+        <view class="weui-cell__bd">测试入口</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

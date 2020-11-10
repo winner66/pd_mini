@@ -1,0 +1,19 @@
+.weui-cell__ft {
+  color:rgb(0, 0, 0)
+}
+
+.pd-icon {
+  margin-right: 16px;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
+
+.pd-cell-label{
+  word-wrap:break-word;
+  word-break: break-all;
+}
+
+/* .pd-split {
+  padding: 5px;
+} */

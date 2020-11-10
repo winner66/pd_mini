@@ -1,0 +1,101 @@
+<view class="page">
+  <scroll-view class="pd-content" scroll-y="true" enable-back-to-top="true">
+    <view class="weui-cells__title">订货示例</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <text>
+            {{rule.pdExp}}
+          </text>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <text>
+            {{rule.orderRule}}
+          </text>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">我的订货</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <!-- <text>
+            {{rule.pd}}
+          </text> -->
+        <view class="weui-cell__hd">
+          <view class="weui-label">订货标识</view>
+        </view>
+        <view class="weui-cell__bd" data-text="{{rule.pd}}" bindtap="copyRule">
+          <view>{{rule.pd}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_access {{rule.showCapacity ? 'on' : 'off'}}" hover-class="weui-cell_active" bindtap="selectPar" data-type="capacity" data-optiontype="capacities">
+        <view class="weui-cell__hd">
+          <view class="weui-label">标称容量</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input type="text" class="weui-input" placeholder="请选择标称容量" value="{{capacity}}" disabled="true" />
+        </view>
+        <!-- <view class="weui-cell__ft weui-cell__ft_in-access"> -->
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!capacity ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_access {{rule.showTolerance ? 'on' : 'off'}}" hover-class="weui-cell_active" bindtap="selectPar" data-type="tolerance" data-optiontype="tolerances">
+        <view class="weui-cell__hd">
+          <view class="weui-label">容量偏差</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input type="text" class="weui-input" placeholder="请选择容量偏差" value="{{tolerance}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!tolerance ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_access {{rule.showOutlet ? 'on' : 'off'}}" hover-class="weui-cell_active" bindtap="selectPar" data-type="outlet" data-optiontype="outlets">
+        <view class="weui-cell__hd">
+          <view class="weui-label">引出端形式</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input type="text" class="weui-input" placeholder="请选择引出端形式" value="{{outlet}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!outlet ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">数量</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="number" maxlength="9" pattern="[0-9]*" placeholder="请输入数量" bindinput="inputNum" value="{{num}}" />
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!num ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">备注</view>
+        </view>
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="可以备注其他需求" value="{{descr}}" maxlength="200" auto-height="true" hidden="{{visible}}" bindinput="inputDesc" />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="weui-flex pd-bottom-tool">
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <button class="weui-btn" type="primary" bindtap="addOrder" style="width:90%">加入清单</button>
+      </view>
+    </view>
+  </view>
+
+  <wux-popup-select value="{{value}}" options="{{options}}" bind:valueChange="onValueChange" visible="{{ visible }}" controlled toolbar="{{toolbar}}" bind:visibleChange="onVisibleChange">
+  </wux-popup-select>
+
+</view>

@@ -1,0 +1,72 @@
+<view class="page">
+<view class="weui-cells__title">请完善清单信息</view>
+  <scroll-view scroll-y="true" class="pd-content" bindscroll="scroll" croll-with-animation="true" enable-back-to-top="true" scroll-top="{{scrollTop}}">
+  <view class="weui-cell" hover-class="weui-cell_active" bindtap="selectPar">
+        <view class="weui-cell__hd">
+          <view class="weui-label">清单类型</view>
+        </view>
+        <view class="weui-cell__bd">
+        <input type="text" class="weui-input" placeholder="请选清单类型【必填】" value="{{orderType}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!orderType ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">联系人</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input maxlength="10" value='{{contact}}' placeholder="请输入联系人姓名【必填】" bindinput="inputContact"></input>
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!contact ? false : true) : true}}"></icon>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">联系电话</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input maxlength="15" value='{{phone}}' type="number" placeholder="请输入联系人电话【必填】" bindinput="inputPhone"></input>
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!phone ? false : true) : true}}"></icon>
+        </view>
+      </view>
+      <view class="weui-cell" id="bottom">
+        <view class="weui-cell__hd">
+          <view class="weui-label">公司</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input maxlength="50" value='{{company}}' placeholder="请输入联系人公司【必填】" bindinput="inputCompany"></input>
+        </view>
+         <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!company ? false : true) : true}}"></icon>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">备注</view>
+        </view>
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="可以备注其他需求" value="{{descr}}" maxlength="200" auto-height="true" bindinput="inputDescr" />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="weui-flex pd-bottom-tool">
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <button class="weui-btn" type="primary" style="width:90%" bindtap="save">提交</button>
+      </view>
+    </view>
+  </view>
+
+  <wux-popup-select value="{{value}}"  options="{{options}}" bind:valueChange="onValueChange" visible="{{ visible }}" controlled toolbar="{{toolbar}}" bind:visibleChange="onVisibleChange">
+  </wux-popup-select>
+
+</view>

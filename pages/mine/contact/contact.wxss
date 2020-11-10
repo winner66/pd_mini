@@ -1,0 +1,20 @@
+.pd-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
+.weui-cell {
+  padding:10px;
+}
+
+.weui-panel__hd{
+  background-color: rgba(0, 0, 0, 0.1)
+}
+
+.cm_office{
+  font-size:13px;
+  font-weight:600;
+  background-color: rgba(0, 0, 0, 0.03)
+}

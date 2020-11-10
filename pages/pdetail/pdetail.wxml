@@ -1,0 +1,398 @@
+<!-- <view class="pd-split"></view> -->
+
+<view class="page">
+  <scroll-view class="pd-content" scroll-y="true" enable-back-to-top="true">
+  <view class="pd-split"></view>
+  
+    <swiper class="swiper _obect_img" style="height:{{objImgHeight}}" indicator-dots="true" circular="true" wx:if="{{tab == 'obj'}}">
+      <block wx:for="{{pd.pdModel.objectUrls}}" wx:for-item="url" wx:key="url">
+        <swiper-item>
+          <image src="{{context + url}}" mode="widthFix" bindtap="prePdImg" data-url="{{url}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view wx:if="{{tab == 'rule'}}" class="_order_rule">
+      <view style="padding:5px 5px 0px 5px">
+        <text style="font-size:13px; font-weight:550;line-height:2" space="ensp">{{pd.ruleExp}}</text>
+      </view>
+      <view style="margin-top:20px"></view>
+      <block wx:for="{{pd.ruleDesc}}" wx:key="desc" wx:for-index="i" wx:for-item="desc">
+        <view class="weui-flex" wx:if="{{i % 4 == 0}}" style="margin-top:5px">
+          <block wx:for="{{pd.ruleDesc}}" wx:key="desc" wx:for-index="j" wx:for-item="desc">
+            <view class="weui-flex__item" style="white-space: nowrap;overflow: hidden;" wx:if="{{j >= i && j < i + 4}}">{{desc}}</view>
+          </block>
+        </view>
+      </block>
+      </view>
+    <view class="pd-split"></view>
+    <view wx:if="{{pd.pdModel.objectUrls.length > 0}}">
+      <wux-segmented-control theme="balanced" values="{{ ['订货示例', '实物图'] }}" bind:change="changeTab" />
+      <view class="pd-split"></view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">产品分类</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdClass.name}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">产品型号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.code}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">产品名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.name}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">生产厂家</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.company}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{rule}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">订货标识</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{rule}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdInfo.std}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">执行标准</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.std}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdInfo.quality}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">质量等级</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.quality}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdInfo.size}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">尺寸</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.size}}</view>
+          <view class="pd-cell-label">
+            <text>{{pd.pdInfo.sizeDesc}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdInfo.voltage}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">电压</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.voltage}}</view>
+        </view>
+      </view>
+
+      <view class=" weui-cell" wx:if="{{pd.pdInfo.temperature}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">温度特性</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.temperature}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" hover-class="weui-cell_active" bindtap="selectPar" data-handle="{{true}}" data-type="pin" data-optiontype="pins" wx:if="{{pd.pdInfo.pin}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">引脚形状</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input type="text" class="weui-input" placeholder="请选择引脚形状【必填】" value="{{pinText}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{true ? (!pin ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell" hover-class="weui-cell_active" bindtap="casOpen" data-handle="{{pd.selCapacity?true:false}}" data-type="capacity" data-optiontype="capacities" wx:if="{{pd.pdInfo.capacityMin && pd.pdInfo.capacityMax}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">容量</view>
+        </view>
+        <view class="weui-cell__bd" wx:if="{{!pd.selCapacity}}">
+          <view class="pd-cell-label">{{pd.pdInfo.capacity}}</view>
+        </view>
+        <view class="weui-cell__bd" wx:if="{{pd.selCapacity}}">
+          <input type="text" class="weui-input" placeholder="请选择容量【必填】" value="{{capacityText}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft" wx:if="{{pd.selCapacity}}">
+          <icon type="warn" size="20" hidden="{{true ? (!capacity ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell" hover-class="weui-cell_active" bindtap="selectPar" data-handle="{{pd.selTolerance?true:false}}" data-type="tolerance" data-optiontype="tolerances" wx:if="{{pd.pdInfo.tolerance}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">精度</view>
+        </view>
+        <view class="weui-cell__bd" wx:if="{{!pd.selTolerance}}">
+          <view class="pd-cell-label">{{pd.pdInfo.tolerance}}</view>
+        </view>
+        <view class="weui-cell__bd" wx:if="{{pd.selTolerance}}">
+          <input type="text" class="weui-input" placeholder="请选择精度【必填】" value="{{toleranceText}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft" wx:if="{{pd.selTolerance}}">
+          <icon type="warn" size="20" hidden="{{true ? (!tolerance ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell" hover-class="weui-cell_active" bindtap="selectPar" data-handle="{{pd.selOutlet?true:false}}" data-type="outlet" data-optiontype="outlets" wx:if="{{pd.pdInfo.outlet}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">引出端形式</view>
+        </view>
+        <view class="weui-cell__bd" wx:if="{{!pd.selOutlet}}">
+          <view class="pd-cell-label">{{pd.pdInfo.outlet}}</view>
+        </view>
+        <view class="weui-cell__bd" wx:if="{{pd.selOutlet}}">
+          <input type="text" class="weui-input" placeholder="请选择引出端形式【必填】" value="{{outletText}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft" wx:if="{{pd.selOutlet}}">
+          <icon type="warn" size="20" hidden="{{true ? (!outlet ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell" hover-class="weui-cell_active" bindtap="selectPar" data-handle="{{true}}" data-type="wireMa" data-optiontype="wireMas" wx:if="{{pd.pdInfo.wireMa}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">引线材质</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input type="text" class="weui-input" placeholder="请选择引线材质【必填】" value="{{wireMaText}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{true ? (!wireMa ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell" hover-class="weui-cell_active" bindtap="selectPar" data-handle="{{true}}" data-type="wireSize" data-optiontype="wireSizes" wx:if="{{pd.pdInfo.wireSize}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">引线长短</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input type="text" class="weui-input" placeholder="请选择引线长短【必填】" value="{{wireSizeText}}" disabled="true" />
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{true ? (!wireSize ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class=" weui-cell" wx:if="{{pd.pdInfo.elecCode}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">电极材料代码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.elecCode}}</view>
+        </view>
+      </view>
+
+      <view class=" weui-cell" wx:if="{{pd.pdInfo.capNum}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">电容数量</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.capNum}}</view>
+        </view>
+      </view>
+
+      <view class=" weui-cell" wx:if="{{pd.pdInfo.elecType}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">电路形式</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.elecType}}</view>
+        </view>
+      </view>
+
+      <view class=" weui-cell" wx:if="{{pd.pdInfo.temperRange}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">工作温度范围</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.temperRange}}</view>
+        </view>
+      </view>
+
+      <view class=" weui-cell" wx:if="{{pd.pdInfo.elecSer}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">电流系列</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.elecSer}}</view>
+        </view>
+      </view>
+
+      <view class=" weui-cell" wx:if="{{pd.pdInfo.socStr}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">端头结构</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.socStr}}</view>
+        </view>
+      </view>
+
+      <view class=" weui-cell" wx:if="{{pd.pdInfo.packType}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">包装方式</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdInfo.packType}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdModel.voltage}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">介质耐电压</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.voltage}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdModel.ohm}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">绝缘电阻</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.ohm}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdModel.tan}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">损耗角正切</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.tan}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdModel.purpose}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">产品应用</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.purpose}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdModel.feature}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">产品特点</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.feature}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdModel.contact}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">技术联系人</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="pd-cell-label">{{pd.pdModel.contact}}</view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:if="{{pd.pdModel.phone}}" hover-class="weui-cell_active" bindtap="callPhone" data-phone="{{pd.pdModel.phone}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">联系方式</view>
+        </view>
+        <view class="weui-cell__bd">
+          <!-- <view class="pd-cell-label"> -->
+          {{pd.pdModel.phone}}
+          <!-- <image src="/images/call_phone.png" class="pd-icon" style="float:right"></image> -->
+          <!-- </view> -->
+        </view>
+        <view class="weui-cell__ft">
+          <image src="/images/call_phone.png" class="pd-icon" style="float:right"></image>
+        </view>
+      </view>
+
+      <!-- <view class="weui-cell" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <view class="weui-label">产品手册</view>
+    </view>
+    <view class="weui-cell__bd" bindtap="openManual">
+        产品手册.PDF (点我查看)
+    </view>
+  </view> -->
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">数量</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="number" maxlength="9" pattern="[0-9]*" placeholder="请输入数量【必填】" bindinput="inputNum" value="{{num}}" />
+        </view>
+        <view class="weui-cell__ft">
+          <icon type="warn" size="20" hidden="{{checked ? (!num ? false : true) : true}}"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">备注</view>
+        </view>
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="可以备注其他需求" value="{{descr}}" maxlength="200" auto-height="true" hidden="{{visible || casvisible}}" bindinput="inputDesc" />
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+
+  <!-- <view class="pd-split"></view> -->
+
+  <!-- <view class="weui-flex pd-bottom-tool"> -->
+  <!-- <view class="weui-flex__item">
+      <button class="weui-btn" type="primary" open-type="contact" style="width:90%">客服</button>
+    </view>
+    <view class="weui-flex__item">
+      <button class="weui-btn" type="primary" style="width:90%" bindtap="order"> 我要订货</button>
+    </view> -->
+  <!-- </view> -->
+
+  <view class="weui-flex pd-bottom-tool">
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <button class="weui-btn" type="primary" style="width:90%" bindtap="commit">加入清单</button>
+      </view>
+    </view>
+  </view>
+
+  <wux-popup-select value="{{value}}" options="{{options}}" bind:valueChange="onValueChange" visible="{{ visible }}" controlled toolbar="{{toolbar}}" bind:visibleChange="onVisibleChange">
+  </wux-popup-select>
+
+  <wux-cascader visible="{{casvisible}}" value="{{casvalue}}" title="请选择" options="{{casoptions}}" bind:close="casClose" bind:change="casChange" controlled="true" position="bottom" />
+
+</view>

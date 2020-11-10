@@ -1,0 +1,78 @@
+<view class="page">
+
+  <!-- <view class="pd-split"></view> -->
+  <!-- <view class="weui-flex" style="height:30px;padding-top:10px"> -->
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <view class="placeholder" style="padding-left:5px;font-weight:530;" bindtap="checkAll">
+        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!checkAll}}"></icon>
+        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{checkAll}}"></icon>
+        全选
+      </view>
+    </view>
+    <!-- <view class="weui-flex__item">
+      <view hover-class="weui-cell_active1" bindtap="copyRule">
+        <view class="placeholder" style="font-weight:530;height:25px">
+        复制标识<image src="/images/copy.png" class="pd-icon" style="padding-left:3px"></image>
+        </view>
+      </view>
+    </view> -->
+    <view class="weui-flex__item">
+    </view>
+    <view hover-class="weui-cell_active1" bindtap="navOrderList">
+      <view class="placeholder" style="font-weight:530;height:25px;margin-right:10px">历史清单</view>
+    </view>
+  </view>
+
+  <view class="pd-split"></view>
+  <scroll-view scroll-y="true" class="pd-content" style="100%" bindscrolltolower="loadMore" bindscroll="scroll" croll-with-animation="true" enable-back-to-top="true" scroll-top="{{scrollTop}}">
+
+    <!-- <view class="weui-panel weui-panel_access"> -->
+    <!-- <view class="weui-panel__hd">产品列表</view> -->
+    <!-- <view class="weui-panel__bd"> -->
+    <!-- <checkbox-group bindchange="checkboxChange"> -->
+    <block wx:for="{{data}}" wx:for-item="d" wx:key="d">
+      <view class="weui-cell" hover-class="weui-cell_active1">
+        <!-- <checkbox class="weui-check" value="{{d.id}}" checked="{{d.checked}}" /> -->
+        <view class="weui-cell__hd weui-check__hd_in-checkbox" bindtap="selOrder" data-id="{{d.id}}">
+          <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!d.checked}}"></icon>
+          <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{d.checked}}"></icon>
+        </view>
+        <image src="{{context}}/{{d.pcIcon}}" class="pd-icon"></image>
+        <!-- <view url="/pages/ordertmp/updateordertmp?tmpId={{d.id}}&flag={{d.flag}}&num={{d.num}}&descr={{d.descr}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active"> -->
+        <view class="weui-cell__bd" hover-class="weui-cell_active1" data-id="{{d.id}}" data-flag="{{d.flag}}" data-num="{{d.num}}" data-descr="{{d.descr}}" bindtap="navupdate">
+          <view class="weui-cell__bd weui-cell__ft_in-access" hover-class="weui-cell_active1">
+            <view class="pd-cell-label">{{d.flag}}</view>
+          </view>
+          <view class="weui-cell__ft" style="padding-top:2px;text-align:left;font-size:11px;color:rgba(0, 0, 0, 0.5)">数量 {{d.num}}</view>
+        </view>
+        <!-- </view> -->
+      </view>
+    </block>
+    <!-- </checkbox-group> -->
+
+    <view class="weui-loadmore" hidden="{{nomore}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载...</view>
+    </view>
+
+    <view class="weui-loadmore weui-loadmore_line" hidden="{{haspd}}">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">您还未添加产品</view>
+    </view>
+    <!-- </view> -->
+    <!-- </view> -->
+  </scroll-view>
+
+  <view class="weui-flex pd-bottom-tool" hidden="{{data.length==0}}">
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <button class="weui-btn" type="primary" style="width:90%" bindtap="copyRule">复制标识</button>
+      </view>
+    </view>
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <button class="weui-btn" type="primary" style="width:90%" bindtap="commit">提交清单</button>
+      </view>
+    </view>
+  </view>
+</view>
