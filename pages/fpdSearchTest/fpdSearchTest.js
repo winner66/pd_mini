@@ -228,20 +228,22 @@ Page({
     for (let key in data) {
       console.log(key);
       if ('key' == key) {   
-        tem["key"]=data[key]; 
+        tem["key"]=data[key][0].title; 
+
       } else if (data[key] && data[key] != '') {
         // data[key] = data[key][pdpar[key].length - 1];
-        tem[key]=[data[key]];
+        tem[key]=data[key];
       }
     }
     console.log('tem',tem)
     if(tem["key"]!=null&&tem["socStr"]!=null&&tem["key"]!=''&&tem["socStr"]!=''){
-      tem["key"]= tem["key"]+"-"+[tem["socStr"]][0]; 
+      tem["key"]= tem["key"]+"-"+tem["socStr"][0].title; 
     }
+
     getApp().globalData.fpdPdpar=tem;
+    getApp().globalData.options=data;
     getApp().globalData.fpdPdpartext=tem;
-    console.log(text);
-    console.log('casChange', e.detail);
+
     console.log('data',tem) ; 
     this.search();
   },

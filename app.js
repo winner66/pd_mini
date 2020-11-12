@@ -74,6 +74,10 @@ App({
     fpdPdpartext: {
       clzqa: [],
     },
+    // 选择某系列后-国外产品参数选项
+    options:{
+
+    },
 
 
     //每次发布需检查域名和appid

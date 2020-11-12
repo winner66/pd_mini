@@ -50,14 +50,14 @@ Page({
       } else if("clzqa"==key||"capacity"==key){
         // clzqa capacity 单选（范围缩小）
         if (pdpar[key] && pdpar[key] != '') {
-          var tem=new Array()        
-          tem[0]=pdpar[key][pdpar[key].length - 1];
+          // var tem=new Array()        
+          // tem[0]=pdpar[key][pdpar[key].length - 1];
           data[key] =pdpar[key][pdpar[key].length - 1];
         }     
       }   
        else if (pdpar[key] && pdpar[key] != '') {
         // 多选        
-        data[key] = pdpar[key][0];
+        data[key] = pdpar[key];
       }
     }
 

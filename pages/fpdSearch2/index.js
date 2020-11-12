@@ -22,31 +22,26 @@ Page({
   onClick3(e) {
     console.log(e);
     this.data.filterType=e.currentTarget.dataset.type;
-    var selectOption=[{
-      title: '画画',
-      value: '1',
-  },
-  {
-      title: '打球',
-      value: '2',
-  },
-  {
-      title: '唱歌',
-      value: '3',
-  },
-  {
-      title: '游泳',
-      value: '4',
-  },
-  {
-      title: '健身',
-      value: '5',
-  },
-  {
-      title: '睡觉',
-      value: '6',
-  },
-    ];
+  //   var selectOption=[{
+  //     title: '画画',
+  //     value: '1',
+  // },
+  // {
+  //     title: '打球',
+  //     value: '2',
+  // },
+  // {
+  //     title: '唱歌',
+  //     value: '3',
+  // },
+  // {
+  //     title: '睡觉',
+  //     value: '6',
+  // },
+  //   ];
+  var selectOption=getApp().globalData.options[this.data.filterType];
+console.log('options',selectOption);
+console.log('fpdvalue',this.data.fpdValue[this.data.filterType])
     var title=e.currentTarget.dataset.title;
     $wuxSelect('#wux-select3').open({
         value: this.data.fpdValue[this.data.filterType],
@@ -65,7 +60,6 @@ Page({
         },
         onConfirm: (value, index, options) => {
             console.log('onConfirm', value, index, options)
-
             let temFpdValue=this.data.fpdValue;
             temFpdValue[this.data.filterType]=value;
             this.setData({
@@ -73,14 +67,9 @@ Page({
                 title3: index.map((n) => options[n].title),
                 fpdValue:temFpdValue,
             })
-            
-
-            
-            getApp().globalData.fpdPdpar[this.data.filterType] = index.map((n) => options[n].title),
-            console.log('pdpar',getApp().globalData.fpdPdpar);
+            getApp().globalData.fpdPdpar[this.data.filterType] = index.map((n) =>[options[n].title]),          
             getApp().globalData.fpdPdpartext[this.data.filterType] = index.map((n) =>options[n].title).join(',');
-            console.log('pdpartext',getApp().globalData.fpdPdpartext);
-            console.log('value:',this.data.value3);
+     
             this.setData({
               text: getApp().globalData.fpdPdpartext,             
             });
@@ -90,6 +79,9 @@ Page({
   
 
   onShow: function () {
+
+  },
+  onLoad:function(){
     this.init();
   },
 
@@ -101,9 +93,28 @@ Page({
   },
 
   init: function() {
+    var temText=getApp().globalData.fpdPdpartext;
+    var temFpdValue={};
+    var text;
+    for (var element in temText) {     
+      if(element!="key"){
+        console.log(temText[element]);
+        temFpdValue[element]=temText[element].map((n) =>n.title);      
+        text=temText[element].map((n) =>n.title).join(',')
+        temText[element]=text;
+        console.log( text);
+      } 
+    }   
+    getApp().globalData.fpdPdpartext=temText;
     this.setData({
-      text: getApp().globalData.fpdPdpartext,
-    })
+      text: temText,     
+      fpdValue:temFpdValue,
+    })    
+    // console.log('pdpartext',getApp().globalData.fpdPdpartext);
+
+    // console.log('pdpar',getApp().globalData.fpdPdpar);
+    // console.log('fpdValue',this.data.fpdValue);
+
   },
 
   search: function(e) {
@@ -140,7 +151,7 @@ Page({
           data[key] = pdpar[key];
         }
       }else if (pdpar[key] && pdpar[key] != '') {
-        data[key] = pdpar[key][pdpar[key].length - 1];
+        data[key] = pdpar[key];
       }
     }
     return data;
@@ -168,7 +179,7 @@ Page({
     var that = this;
     console.log(data);
     wx.request({
-      url: this.data.context + '/pd/list-params',
+      url: this.data.context + '/pd/list-params-fpd',
             // url: this.data.context + '/pd/list-params-fpd',
       data: data,
       method: 'GET',
@@ -208,6 +219,7 @@ Page({
     console.log('casChange', e.detail)
     getApp().globalData.fpdPdpar[this.data.filterType] = e.detail.value;
     console.log('pdpar',getApp().globalData.fpdPdpar);
+
     getApp().globalData.fpdPdpartext[this.data.filterType] = e.detail.options.map((n) => n.label).join('/');
     console.log('casChange',getApp().globalData.fpdPdpartext);
     this.setData({
