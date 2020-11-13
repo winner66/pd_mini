@@ -33,7 +33,6 @@ Page({
       duration: 10000,
       mask: true
     });
-
     var that = this;
     var data = {
       pageNum: this.data.pageNum,
@@ -54,21 +53,30 @@ Page({
           // tem[0]=pdpar[key][pdpar[key].length - 1];
           data[key] =pdpar[key][pdpar[key].length - 1];
         }     
-      }   
-       else if (pdpar[key] && pdpar[key] != '') {
-        // 多选        
-        data[key] = pdpar[key];
+      } 
+      else if (pdpar[key] && pdpar[key] != '') {
+        // 数组类型
+        var temstr="";
+        for( var item in pdpar[key] ){
+            temstr=temstr+pdpar[key][item]+","
+        }
+        data[key] = temstr.substring(0,temstr.length-1);   
       }
+
     }
 
     var text = getApp().globalData.fpdPdpartext;
-    console.log('pdpartext',text);
+ 
     if (text && text.capacity) {
       var index = text.capacity.lastIndexOf("\/");
-      var tem=new Array()        
-      tem[0]=text.capacity.substring(index + 1, text.length);
+      // var tem=new Array()        
+      // tem[0]=text.capacity.substring(index + 1, text.length);
+      console.log('capacity',text.capacity.substring(index + 1, text.length));
       data['capacityCode'] =text.capacity.substring(index + 1, text.length) ;
     }
+
+
+
     console.log('pdreq', data);
     wx.request({
       url: this.data.context + '/pd/get-pd-infos-fpd',

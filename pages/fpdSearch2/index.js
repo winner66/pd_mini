@@ -30,10 +30,7 @@ Page({
   //     title: '打球',
   //     value: '2',
   // },
-  // {
-  //     title: '唱歌',
-  //     value: '3',
-  // },
+
   // {
   //     title: '睡觉',
   //     value: '6',
@@ -67,7 +64,7 @@ console.log('fpdvalue',this.data.fpdValue[this.data.filterType])
                 title3: index.map((n) => options[n].title),
                 fpdValue:temFpdValue,
             })
-            getApp().globalData.fpdPdpar[this.data.filterType] = index.map((n) =>[options[n].title]),          
+            getApp().globalData.fpdPdpar[this.data.filterType] = [index.map((n) =>[options[n].title])],          
             getApp().globalData.fpdPdpartext[this.data.filterType] = index.map((n) =>options[n].title).join(',');
      
             this.setData({
@@ -79,7 +76,6 @@ console.log('fpdvalue',this.data.fpdValue[this.data.filterType])
   
 
   onShow: function () {
-
   },
   onLoad:function(){
     this.init();
@@ -99,8 +95,8 @@ console.log('fpdvalue',this.data.fpdValue[this.data.filterType])
     for (var element in temText) {     
       if(element!="key"){
         console.log(temText[element]);
-        temFpdValue[element]=temText[element].map((n) =>n.title);      
-        text=temText[element].map((n) =>n.title).join(',')
+        temFpdValue[element]=temText[element];      
+        text=temText[element].map((n) =>n).join(',')
         temText[element]=text;
         console.log( text);
       } 
@@ -112,7 +108,7 @@ console.log('fpdvalue',this.data.fpdValue[this.data.filterType])
     })    
     // console.log('pdpartext',getApp().globalData.fpdPdpartext);
 
-    // console.log('pdpar',getApp().globalData.fpdPdpar);
+    console.log('pdpar',getApp().globalData.fpdPdpar);
     // console.log('fpdValue',this.data.fpdValue);
 
   },
@@ -148,10 +144,15 @@ console.log('fpdvalue',this.data.fpdValue[this.data.filterType])
     for (let key in pdpar) {
       if ('key' == key){
         if (pdpar[key] && pdpar[key] != ''){
-          data[key] = pdpar[key];
-        }
+         
+          data[key] =pdpar[key];
+       }
       }else if (pdpar[key] && pdpar[key] != '') {
-        data[key] = pdpar[key];
+        var temstr="";
+        for( var item in pdpar[key] ){
+            temstr=temstr+pdpar[key][item]+","
+        }
+        data[key] = temstr.substring(0,temstr.length-1);
       }
     }
     return data;
@@ -177,10 +178,17 @@ console.log('fpdvalue',this.data.fpdValue[this.data.filterType])
     data.filterType = type;
     delete data[type];;
     var that = this;
-    console.log(data);
+    console.log("req-param:",data);
+
+    var requestURL;
+    if(type=="quality"){
+      requestURL=this.data.context + '/pd/list-params';
+    }else{
+      requestURL= this.data.context + '/pd/list-params-fpd';
+    }
     wx.request({
+      // url:requestURL,
       url: this.data.context + '/pd/list-params-fpd',
-            // url: this.data.context + '/pd/list-params-fpd',
       data: data,
       method: 'GET',
       success(res) {
@@ -205,32 +213,38 @@ console.log('fpdvalue',this.data.fpdValue[this.data.filterType])
         wx.hideToast();
       }
     })
+   
   },
 
+
+
   casChange(e) {
+    console.log('e',e);
     this.setData({
       value: e.detail.value
     });
     var child = e.detail.options[e.detail.options.length - 1].children;
     if (child && child.length > 0) {
       return;
-    }
-
-    console.log('casChange', e.detail)
-    getApp().globalData.fpdPdpar[this.data.filterType] = e.detail.value;
+    }  
     console.log('pdpar',getApp().globalData.fpdPdpar);
+    getApp().globalData.fpdPdpar[this.data.filterType] =e.detail.value;
 
     getApp().globalData.fpdPdpartext[this.data.filterType] = e.detail.options.map((n) => n.label).join('/');
-    console.log('casChange',getApp().globalData.fpdPdpartext);
     this.setData({
-      text: getApp().globalData.fpdPdpartext
+      text: getApp().globalData.fpdPdpartext,
     });
-
   },
 
   casClear(e){
-    getApp().globalData.fpdPdpar[this.data.filterType] = '';
-    getApp().globalData.fpdPdpartext[this.data.filterType] = '';
+    console.log(e)
+    if(this.data.filterType=="key"){
+      getApp().globalData.fpdPdpar[this.data.filterType] = '';
+      getApp().globalData.fpdPdpartext[this.data.filterType] = '';
+    }else{
+      getApp().globalData.fpdPdpar[this.data.filterType] = [];
+      getApp().globalData.fpdPdpartext[this.data.filterType] = [];
+    }
     this.setData({
       visible: false,
       text: getApp().globalData.fpdPdpartext

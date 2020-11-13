@@ -1,4 +1,4 @@
-// var fpdreq = require('../../utils/fpdreq.js')
+var deepCopy = require('../../utils/deepCopy.js')
 
 // pages/fpdSearchTest/fpdSearchTest.js
 Page({
@@ -213,42 +213,60 @@ Page({
     if (child && child.length > 0) {
       return;
     }
-    var len=e.detail.options.length-1;
-    var text=""
-    var  search;
-    // if(e.detail.options[len].opera=="op"){
-    //   text=e.detail.options.map((n) => n.label).join('/');
-    //   getApp().globalData.pdpar=e.detail.options[len].data;
-    // }
-    text=e.detail.options.map((n) => n.label).join('/');
+    var len=e.detail.options.length-1;  
+    // text=e.detail.options.map((n) => n.label).join('/');
     // 对data内部做处理（除了key 以外的值 设置为【】）
     var data=e.detail.options[len].data;
-    var tem={};
+    var tem=getApp().globalData.fpdPdpartext;
     console.log(data);
     for (let key in data) {
       console.log(key);
       if ('key' == key) {   
         tem["key"]=data[key][0].title; 
-
       } else if (data[key] && data[key] != '') {
         // data[key] = data[key][pdpar[key].length - 1];
-        tem[key]=data[key];
-      }
+        var array=[];
+        for(var item in data[key]){
+          array.push(data[key][item].title);
+        }   
+        console.log(array);
+         tem[key]=array;     
+      }      
     }
     console.log('tem',tem)
     if(tem["key"]!=null&&tem["socStr"]!=null&&tem["key"]!=''&&tem["socStr"]!=''){
-      tem["key"]= tem["key"]+"-"+tem["socStr"][0].title; 
-    }
-
+      tem["key"]= tem["key"]+"-"+tem["socStr"][0]; 
+    }   
+    getApp().globalData.options=data;  
     getApp().globalData.fpdPdpar=tem;
-    getApp().globalData.options=data;
-    getApp().globalData.fpdPdpartext=tem;
-
-    console.log('data',tem) ; 
+    var temText=getApp().globalData.fpdPdpartext;
+    for (let key in data) {
+      console.log(key);
+      if ('key' == key) {   
+        temText["key"]=data[key][0].title; 
+      } else if (data[key] && data[key] != '') {
+        // data[key] = data[key][pdpar[key].length - 1];
+        var array=[];
+        for(var item in data[key]){
+          array.push(data[key][item].title);
+        }   
+        console.log(array);
+        temText[key]=array;     
+      }      
+    }
+    console.log(' temText', temText)
+    if( temText["key"]!=null&& temText["socStr"]!=null&& temText["key"]!=''&& temText["socStr"]!=''){
+      temText["key"]=  temText["key"]+"-"+ temText["socStr"][0]; 
+    }  
+    var deep=deepCopy.baseClone(tem);
+    getApp().globalData.fpdPdpartext=deep;
+    console.log(' temText', temText)   
+    console.log('data', getApp().globalData.options); 
     this.search();
   },
   search1: function(e) {
     console.log("pdpartext",getApp().globalData.fpdPdpartext);
+    console.log("pdpar",getApp().globalData.fpdPdpar);
     getApp().globalData.fpdReSearchPd = true;
     // wx.switchTab({
     //   url: '/pages/pdlist/pdlist',
@@ -260,6 +278,7 @@ Page({
     // pages/search/search
     getApp().globalData.fpdReSearchPd = true;
     console.log("pdpartext",getApp().globalData.fpdPdpartext);
+    console.log("pdpar",getApp().globalData.fpdPdpar);
     wx.navigateTo({
       url: '/pages/fpdSearch2/index',
     })

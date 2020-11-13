@@ -63,6 +63,7 @@ Page({
         data[key] = pdpar[key][pdpar[key].length - 1];
       }
     }
+    console.log('data',data);
     return data;
   },
 
