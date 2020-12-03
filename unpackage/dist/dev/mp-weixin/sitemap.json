@@ -1,0 +1,7 @@
+{
+  "desc": "宏科电子产品选型，请参考文档http://www.chinahongke.com/",
+  "rules": [{
+  "action": "allow",
+  "page": "*"
+  }]
+}

@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "wux-cascader": "../../dist/cascader/index",
-    "wux-popup-select": "../../dist/popup-select/index",
-    "wux-cell-group": "../../dist/cell-group/index",
-    "wux-cell": "../../dist/cell/index",
-    "wux-segmented-control": "../../dist/segmented-control/index"
-  }
-}

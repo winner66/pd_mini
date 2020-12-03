@@ -1,0 +1,25 @@
+.weui-cell__ft {
+  color:rgb(0, 0, 0)
+}
+.weui-cells__title{
+  color:rgb(0, 0, 0);
+  font-size:16px;
+}
+.weui-cell__ft_in-access {
+  padding-right: 16px;
+}
+.pd-cell-label{
+  word-wrap:break-word;
+  word-break: break-all;
+}
+.pd-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
+
+/* .pd-split {
+  padding: 5px;
+} */
+

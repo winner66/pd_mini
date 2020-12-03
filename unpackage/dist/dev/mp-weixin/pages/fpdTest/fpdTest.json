@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "国产化替代",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "i-icon": "/wxcomponents/iviewdist/icon/index"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "国产化替代",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "wux-cell": "/wxcomponents/dist/cell/index",
+    "wux-cell-group": "/wxcomponents/dist/cell-group/index",
+    "wux-popup-select": "/wxcomponents/dist/popup-select/index",
+    "wux-cascader": "/wxcomponents/dist/cascader/index"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/search",
+    "pages/pdlist/pdlist",
+    "pages/pdetail/pdetail",
+    "pages/pdrule/pdrule",
+    "pages/fpdsearch/fpdsearch",
+    "pages/fpdlist/fpdlist",
+    "pages/mine/mine",
+    "pages/logs/logs",
+    "pages/ordertmp/ordertmp",
+    "pages/ordertmp/ordercon",
+    "pages/ordertmp/updateordertmp",
+    "pages/order/order",
+    "pages/orderitem/orderitem",
+    "pages/mine/contact/contact",
+    "pages/mine/contact/map/map",
+    "pages/fpdSearchTest/fpdSearchTest",
+    "pages/fpdSearch2/index",
+    "pages/fpdPdList/index",
+    "pages/V2/search/search",
+    "pages/V2/search/components/Vos/vos",
+    "pages/V2/search/components/MutilVo/mutilVo",
+    "pages/V2/search/components/SingleVo/singleVo",
+    "pages/V2/search/components/LTCC/ltcc/ltcc",
+    "pages/test/test",
+    "pages/fpdTest/fpdTest"
+  ],
+  "subPackages": [],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "宏科选型",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/static/images/m-icon-1-1.png",
+        "selectedIconPath": "/static/images/m-icon-1-2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/pdlist/pdlist",
+        "iconPath": "/static/images/m-icon-2-1.png",
+        "selectedIconPath": "/static/images/m-icon-2-2.png",
+        "text": "产品"
+      },
+      {
+        "pagePath": "pages/fpdsearch/fpdsearch",
+        "iconPath": "/static/images/m-icon-3-1.png",
+        "selectedIconPath": "/static/images/m-icon-3-2.png",
+        "text": "同类"
+      },
+      {
+        "pagePath": "pages/ordertmp/ordertmp",
+        "iconPath": "/static/images/m-icon-4-1.png",
+        "selectedIconPath": "/static/images/m-icon-4-2.png",
+        "text": "清单"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "/static/images/m-icon-5-1.png",
+        "selectedIconPath": "/static/images/m-icon-5-2.png",
+        "text": "介绍"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {},
+  "usingComponents": {},
+  "sitemapLocation": "sitemap29.json"
+}

@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "wux-cascader": "../../dist/cascader/index"
-  }
-}

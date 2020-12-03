@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "wux-cascader": "/wxcomponents/dist/cascader/index",
+    "wux-cell": "/wxcomponents/dist/cell/index",
+    "wux-cell-group": "/wxcomponents/dist/cell-group/index",
+    "wux-popup-select": "/wxcomponents/dist/popup-select/index",
+    "wux-select": "/wxcomponents/dist/select/index",
+    "i-icon": "/wxcomponents/iviewdist/icon/index"
+  }
+}

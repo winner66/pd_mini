@@ -1,0 +1,54 @@
+/* pages/V2/search/search.wxss */
+@import "../../../style/colorui/main.css";
+@import "../../../style/colorui/icon.css";
+
+
+.input{
+  overflow: scroll,
+}
+
+.weui-btn {
+  width: 90%;
+}
+
+.opt-switch {
+  margin-right: 16px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
+.on {
+  display: block;
+}
+
+.off {
+  display: none;
+}
+
+.weui-cell__ft {
+  /* align-self: right; */
+  /* text-align: right; */
+  /* color: rgba(0, 0, 0, 0.5); */
+  /* margin-left: 20px; */
+  /* padding-left: 30px; */
+  /* border: 2px; */
+}
+
+.search_value {
+  /* margin-top: 5px;
+  display: block;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 12px; */
+  /* white-space: nowrap; */
+  /* text-overflow: clip; */
+  /* overflow: hidden; */
+}
+
+.pd-search-tool-item{
+  padding-top: 10px;
+  border-top: 1px solid rgba(17, 17, 17, 0.05);
+  /* border:1px solid rgba(1, 1, 1, 0.055); */
+}
+

@@ -1,0 +1,270 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"usingComponents":{
+					"wux-cascader":"/wxcomponents/dist/cascader/index"
+				}
+			}
+			
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索产品",
+				"usingComponents":{
+					"wux-cascader":"/wxcomponents/dist/cascader/index",
+					"wux-cell":"/wxcomponents/dist/cell/index",
+					"wux-cell-group":"/wxcomponents/dist/cell-group/index",
+					"wux-popup-select":"/wxcomponents/dist/popup-select/index",					
+					"wux-select":"/wxcomponents/dist/select/index"
+				
+				}
+			}
+		},
+		{
+			"path": "pages/pdlist/pdlist",
+			"style": {}
+		},
+		{
+			"path": "pages/pdetail/pdetail",
+			"style": {
+				//   wuxCascader,
+				//   wuxPopupSelect,
+				//   wuxCellGroup,
+				//   wuxCell,
+				//   wuxSegmentedControl
+				// },
+				"usingComponents":{
+					"wux-cell":"/wxcomponents/dist/cell/index",
+					"wux-cell-group":"/wxcomponents/dist/cell-group/index",
+					"wux-popup-select":"/wxcomponents/dist/popup-select/index",
+					"wux-cascader":"/wxcomponents/dist/cascader/index",
+					"wux-segmented-sontrol":"/wxcomponents/dist/segmented-control/index"
+				}
+			}
+		},
+		{
+			"path": "pages/pdrule/pdrule",
+			"style": {
+		
+				"usingComponents":{
+					"wux-cell":"/wxcomponents/dist/cell/index",
+					"wux-cell-group":"/wxcomponents/dist/cell-group/index",
+					"wux-popup-select":"/wxcomponents/dist/popup-select/index"
+				}
+			}
+		},
+		{
+			"path": "pages/fpdsearch/fpdsearch",
+			"style": {
+				"usingComponents":{
+					"wux-cascader":"/wxcomponents/dist/cascader/index",
+					"wux-cell":"/wxcomponents/dist/cell/index",
+					"wux-cell-group":"/wxcomponents/dist/cell-group/index",
+					"wux-popup-select":"/wxcomponents/dist/popup-select/index"
+					}
+			}
+		},
+		{
+			"path": "pages/fpdlist/fpdlist",
+			"style": {
+				"navigationBarTitleText": "国产化替代"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {}
+		},
+		{
+			"path": "pages/logs/logs",
+			"style": {
+				"navigationBarTitleText": "查看启动日志"
+			}
+		},
+		{
+			"path": "pages/ordertmp/ordertmp",
+			"style": {
+				"usingComponents":{
+					"wux-cell":"/wxcomponents/dist/cell/index",
+					"wux-cell-group":"/wxcomponents/dist/cell-group/index",
+					"wux-popup-select":"/wxcomponents/dist/popup-select/index"
+					}
+			}
+		},
+		{
+			"path": "pages/ordertmp/ordercon",
+			"style": {}
+		},
+		{
+			"path": "pages/ordertmp/updateordertmp",
+			"style": {}
+		},
+		{
+			"path": "pages/order/order",
+			"style": {}
+		},
+		{
+			"path": "pages/orderitem/orderitem",
+			"style": {}
+		},
+		{
+			"path": "pages/mine/contact/contact",
+			"style": {}
+		},
+		{
+			"path": "pages/mine/contact/map/map",
+			"style": {}
+		},
+		{
+			"path": "pages/fpdSearchTest/fpdSearchTest",
+			"style": {
+				"navigationBarTitleText": "国产化替代",
+				"enablePullDownRefresh": false,
+				"usingComponents":{
+					"wux-cell":"/wxcomponents/dist/cell/index",
+					"wux-cell-group":"/wxcomponents/dist/cell-group/index",
+					"wux-popup-select":"/wxcomponents/dist/popup-select/index",
+					"wux-cascader":"/wxcomponents/dist/cascader/index"
+					}
+			}
+		},
+		{
+			"path": "pages/fpdSearch2/index",
+			"style": {		
+				"navigationBarTitleText": "国产化替代",
+				"usingComponents":{
+					"wux-cascader":"/wxcomponents/dist/cascader/index",
+					"wux-cell":"/wxcomponents/dist/cell/index",
+					"wux-cell-group":"/wxcomponents/dist/cell-group/index",
+					"wux-popup-select":"/wxcomponents/dist/popup-select/index",					
+					"wux-select":"/wxcomponents/dist/select/index"
+				
+				}
+			}
+		},
+		{
+			"path": "pages/fpdPdList/index",
+			"style": {
+					"navigationBarTitleText": "国产化替代"
+			}
+		},
+		{
+			"path": "pages/V2/search/search",
+			"style": {
+				"usingComponents":{
+					"wux-cascader":"/wxcomponents/dist/cascader/index",
+					"wux-cell":"/wxcomponents/dist/cell/index",
+					"wux-cell-group":"/wxcomponents/dist/cell-group/index",
+					"wux-popup-select":"/wxcomponents/dist/popup-select/index",					
+					"wux-select":"/wxcomponents/dist/select/index",
+					"i-icon":"/wxcomponents/iviewdist/icon/index"
+				
+				}
+			}
+		},
+		{
+			"path": "pages/V2/search/components/Vos/vos",
+			"style": {}
+		},
+		{
+			"path": "pages/V2/search/components/MutilVo/mutilVo",
+			"style": {}
+		},
+		{
+			"path": "pages/V2/search/components/SingleVo/singleVo",
+			"style": {}
+		}
+	    ,{
+            "path" : "pages/V2/search/components/LTCC/ltcc/ltcc",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }        
+        // ,{
+        //     "path" : "pages/fpdSearchTest2/fpdSearchTest2",
+        //     "style" :                                                                                    
+        //     {
+        //         "navigationBarTitleText": "",
+        //         "enablePullDownRefresh": false
+        //     }
+            
+        // }
+        ,{
+            "path" : "pages/test/test",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/fpdTest/fpdTest",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "国产化替代",
+                "enablePullDownRefresh": false,
+				"usingComponents":{
+					"i-icon":"/wxcomponents/iviewdist/icon/index"
+				
+				}
+            }
+            
+        }
+    ],
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/images/m-icon-1-1.png",
+				"selectedIconPath": "/static/images/m-icon-1-2.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/pdlist/pdlist",
+				"iconPath": "/static/images/m-icon-2-1.png",
+				"selectedIconPath": "/static/images/m-icon-2-2.png",
+				"text": "产品"
+			},
+			{
+				"pagePath": "pages/fpdsearch/fpdsearch",
+				"iconPath": "/static/images/m-icon-3-1.png",
+				"selectedIconPath": "/static/images/m-icon-3-2.png",
+				"text": "同类"
+			},
+			{
+				"pagePath": "pages/ordertmp/ordertmp",
+				"iconPath": "/static/images/m-icon-4-1.png",
+				"selectedIconPath": "/static/images/m-icon-4-2.png",
+				"text": "清单"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"iconPath": "/static/images/m-icon-5-1.png",
+				"selectedIconPath": "/static/images/m-icon-5-2.png",
+				"text": "介绍"
+			}
+		]
+	},
+	"networkTimeout": {
+		"request": 10000,
+		"connectSocket": 10000,
+		"uploadFile": 10000,
+		"downloadFile": 60000
+	},
+	"style": "v2",
+	"debug": true,
+	"sitemapLocation": "sitemap.json",
+	"globalStyle": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "宏科选型",
+		"navigationBarTextStyle": "black"
+	},
+	"subPackages": []
+}

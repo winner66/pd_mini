@@ -1,0 +1,46 @@
+@import "./style/weui.css";
+
+view{
+  font-size:12px;
+}
+
+input{
+  font-size: 12px;
+}
+
+button{
+  font-size:12px;
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  /* background-color: white; */
+}
+
+.pd-content{
+  flex: 1;
+  height: 1rpx;
+  width: 100%;
+}
+
+.pd-bottom-tool{
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.pd-split {
+  position: relative;
+  padding: 2px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #ededed;
+  -webkit-text-size-adjust: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}

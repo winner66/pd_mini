@@ -1,0 +1,8 @@
+.weui-cell__ft {
+  color:rgba(0, 0, 0)
+}
+.pd-cell-label{
+  word-wrap:break-word;
+  word-break: break-all;
+}
+

@@ -1,0 +1,2 @@
+
+    module.exports.getOptions = function(options) { return options.map(function(option) { if (option.constructor === 'String') { return { title: option, value: option } } return option }) }

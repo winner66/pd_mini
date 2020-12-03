@@ -1,0 +1,81 @@
+.weui-panel__hd {
+  padding: 10px 10px 13px;
+  color: rgba(5, 26, 17, 0.815);
+  font-size: 14px;
+  font-weight: 550;
+  position: relative;
+}
+.weui-grids {
+  border-top: 1rpx solid rgba(0, 0, 0, 0.1);
+  border-left: 1rpx solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.weui-grid {
+  position: relative;
+  height:80px;
+  float: left;
+  padding: 10px 5px 10px 5px;
+  width: 33.333333%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-right: 1rpx solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+.weui-grid4 {
+  position: relative;
+  height:80px;
+  float: left;
+  padding: 10px 5px 10px 5px;
+  width: 25%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-right: 1rpx solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+.weui-grid_active {
+  background-color: #ececec;
+}
+.weui-grid__icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin: 0 auto;
+}
+.weui-grid__label {
+  margin-top: 8px;
+  display: block;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 12px;
+  white-space: normal;
+  text-overflow: clip;
+  overflow: hidden;
+}
+.swiper{
+  width:100%;
+  height:25vh;
+}
+.swiper image{
+  /* padding: 1px; */
+  width:100%;
+}
+.weui-search-bar__input{
+  font-size: 12px;
+}
+.weui-cell_active {
+  background-color: #ececec;
+}
+.manual{
+  /* background-color: #e3f7e1; */
+  /* font- */
+}
+.pd-icon {
+  margin-right: 1px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+.pd-split {
+  padding: 5px;
+}
+

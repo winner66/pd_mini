@@ -1,0 +1,53 @@
+/* .weui-input {
+  height: 1.41176471em;
+  min-height: 1;
+  line-height: 1;
+} */
+.weui-btn {
+  width: 100px;
+}
+.opt-switch {
+  margin-right: 16px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+.hit-on {
+  display: block;
+}
+.hit-off {
+  display: none;
+}
+
+/* .weui-cell__ft { */
+
+/* align-self: right; */
+
+/* text-align: right; */
+
+/* color: rgba(0, 0, 0, 0.5); */
+
+/* margin-left: 20px; */
+
+/* padding-left: 30px; */
+
+/* border: 2px; */
+
+/* } */
+
+/* .search_value { */
+
+/* margin-top: 5px;
+  display: block;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 12px; */
+
+/* white-space: nowrap; */
+
+/* text-overflow: clip; */
+
+/* overflow: hidden; */
+
+/* } */
+

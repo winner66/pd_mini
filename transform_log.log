@@ -1,0 +1,140 @@
+
+Warning： 找不到package.json文件(不影响转换，无视这条)
+
+miniprogram to uni-app 转换日志
+
+---基本信息---
+时间: 2020-11-24 14:11:32
+语言: Javascript
+转换模式: Hbuilder X
+是否转换wxs文件: false
+
+---小程序基本信息---
+name: chk-pd
+version: 
+description: 
+appid: wx82252aab6c844393
+projectname: 
+compileType: miniprogram
+author: 
+
+---目录信息---
+sourceFolder: E:\program\hongke\pd-wx
+targetFolder: E:\program\hongke\pd-wx_uni
+outputFolder: E:\program\hongke\pd-wx_uni
+miniprogramRoot: E:\program\hongke\pd-wx
+
+---日志信息---
+Convert App.vue success!
+Convert component dist\index.js success!
+Convert component utils\deepCopy.js success!
+Convert component utils\fileUtil.js success!
+Convert component utils\fileUtil2.js success!
+Convert component utils\fpdreq.js success!
+Convert component utils\pdreq.js success!
+Convert component utils\util.js success!
+Convert dist\animation-group\index.vue success!
+Convert dist\backdrop\index.vue success!
+Convert dist\cascader\index.vue success!
+Convert component dist\barcode\barcode.js success!
+Convert dist\barcode\index.vue success!
+Convert dist\cell\index.vue success!
+Convert dist\cell-group\index.vue success!
+Convert dist\checkbox\index.vue success!
+Convert component dist\countdown\index.js success!
+Convert dist\checkbox-group\index.vue success!
+Convert component dist\countup\index.js success!
+Convert dist\date-picker-view\index.vue success!
+Convert component dist\date-picker-view\props.js success!
+Convert component dist\helpers\arrayTreeFilter.js success!
+Convert component dist\helpers\baseComponent.js success!
+Convert component dist\helpers\checkIPhoneX.js success!
+Convert component dist\helpers\classNames.js success!
+Convert component dist\helpers\colors.js success!
+Convert component dist\helpers\compareVersion.js success!
+Convert component dist\helpers\computedBehavior.js success!
+Convert component dist\helpers\createFieldsStore.js success!
+Convert component dist\helpers\debounce.js success!
+Convert component dist\helpers\eventsMixin.js success!
+Convert component dist\helpers\funcBehavior.js success!
+Convert component dist\helpers\gestures.js success!
+Convert component dist\helpers\isEmpty.js success!
+Convert component dist\helpers\mergeOptionsToData.js success!
+Convert component dist\helpers\popupMixin.js success!
+Convert component dist\helpers\relationsBehavior.js success!
+Convert component dist\helpers\safeAreaBehavior.js success!
+Convert component dist\helpers\safeSetDataBehavior.js success!
+Convert component dist\helpers\shallowEqual.js success!
+Convert component dist\helpers\styleToCssString.js success!
+Convert dist\popup-select\index.vue success!
+Convert component dist\popup-select\utils.js success!
+Convert dist\popup\index.vue success!
+Convert dist\qrcode\index.vue success!
+Convert dist\radio\index.vue success!
+Convert dist\radio-group\index.vue success!
+Convert dist\segmented-control\index.vue success!
+Convert dist\select\index.vue success!
+Convert dist\selectable\index.vue success!
+Convert dist\timeago\index.vue success!
+Convert pages\fpdPdList\index.vue success!
+Convert pages\fpdSearch2\index.vue success!
+Convert pages\fpdlist\fpdlist.vue success!
+Convert pages\fpdSearchTest\fpdSearchTest.vue success!
+Convert pages\fpdsearch\fpdsearch.vue success!
+Convert pages\index\index.vue success!
+Convert pages\logs\logs.vue success!
+Convert pages\mine\mine.vue success!
+Convert pages\order\order.vue success!
+Convert pages\orderitem\orderitem.vue success!
+Convert pages\ordertmp\ordercon.vue success!
+Convert pages\ordertmp\ordertmp.vue success!
+Convert pages\ordertmp\updateordertmp.vue success!
+Convert pages\pdetail\pdetail.vue success!
+Convert pages\pdlist\pdlist.vue success!
+Convert pages\pdrule\pdrule.vue success!
+Convert pages\search\search.vue success!
+Convert component dist\date-picker-view\locales\en.js success!
+Convert component dist\date-picker-view\locales\index.js success!
+Convert component dist\date-picker-view\locales\zh_CN.js success!
+Convert component dist\date-picker-view\locales\zh_TW.js success!
+Convert component dist\qrcode\qr.js\index.js success!
+Convert component dist\timeago\core\index.js success!
+Convert component dist\timeago\locales\en.js success!
+Convert component dist\timeago\locales\index.js success!
+Convert component dist\timeago\locales\zh_CN.js success!
+Convert component dist\timeago\locales\zh_TW.js success!
+Convert pages\V2\search\search.vue success!
+Convert pages\mine\contact\contact.vue success!
+Convert component dist\qrcode\qr.js\lib\8BitByte.js success!
+Convert component dist\qrcode\qr.js\lib\BitBuffer.js success!
+Convert component dist\qrcode\qr.js\lib\ErrorCorrectLevel.js success!
+Convert component dist\qrcode\qr.js\lib\Polynomial.js success!
+Convert component dist\qrcode\qr.js\lib\QRCode.js success!
+Convert component dist\qrcode\qr.js\lib\RSBlock.js success!
+Convert component dist\qrcode\qr.js\lib\math.js success!
+Convert component dist\qrcode\qr.js\lib\mode.js success!
+Convert component dist\qrcode\qr.js\lib\util.js success!
+Convert pages\mine\contact\map\map.vue success!
+Convert pages\V2\search\components\SingleVo\singleVo.vue success!
+Convert pages\V2\search\components\MutilVo\mutilVo.vue success!
+Convert pages\V2\search\components\Vos\vos.vue success!
+Convert style\icon.css.wxss success!
+Convert style\weui.css.wxss success!
+Convert style\colorui\icon.css.wxss success!
+Convert style\colorui\main.css.wxss success!
+
+转换完成: 
+耗时：3848ms
+当前转换模式：【Hbuilder X】，生成HbuilderX项目。
+优点：上手快，项目结构较简单；
+缺点：资源路径会因为表达式而无法全部被修复(“可能”需手动修复)
+
+注意：
+1.当看到"image漏网之鱼"，意味着您"可能"，“可能”，记住是“可能”，但不一定需要手动调整对应代码(以实际编译运行为准)，当image标签的src属性是含变量或表达式，工具还无法做到100%转换，需要手动修改为相对/static目录的路径
+
+
+日志说明：
+1. image漏网之鱼 --> 为HbuilderX模式时，需要将资源移动到static，并且修复相应文件路径，有可能src为网络文件，有可能为变量或表达式，可能会导致转换后文件找不到，因此提示一下
+修复提示：编译时，如有报错就将对应位置修复即可(虽然目前uni-app有类似的支持，似乎并不完善)
+
+2. 命名替换 --> 小程序里对于属性名基本没什么限制，如id能做属性名，data下面的变量和函数名还能重名，但这些在uni-app里是不支持的，因此做了相关替换，并记录日志，也许组件在外部调用时，函数名被改而因此报错时，请查看答疑文档

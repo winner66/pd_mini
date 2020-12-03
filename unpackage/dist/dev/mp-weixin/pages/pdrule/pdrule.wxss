@@ -1,0 +1,11 @@
+.on {
+  /* display: block; */
+}
+.off {
+  display: none;
+}
+.weui-cells__title{
+  color:rgb(0, 0, 0);
+  font-size:16px;
+}
+

@@ -28,5 +28,5 @@ module.exports = {
   set: set,
   get: get,
   setIdx: setIdx,
-  getIdx: getIdx,
-}
+  getIdx: getIdx
+};
